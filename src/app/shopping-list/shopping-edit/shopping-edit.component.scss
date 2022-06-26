@@ -1,0 +1,10 @@
+$margins: (
+    10: 10px,
+    20: 20px
+);
+
+@each $key, $value in $margins {
+    .mr-#{$key} {
+        margin-right: $value;
+    }
+}
