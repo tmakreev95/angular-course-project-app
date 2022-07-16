@@ -1,13 +1,14 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { Ingredient } from 'src/app/shopping-list/models/ingredient';
-import { ShoppingListService } from 'src/app/shopping-list/services/shopping-list.service';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Ingredient } from '../../shopping-list/models/ingredient';
+import { ShoppingListService } from '../../shopping-list/services/shopping-list.service';
 import { Recipe } from '../models/recipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+  recipesChanged = new Subject<Recipe[]>();
 
   private recipes: Recipe[] = [
     new Recipe('Test Recipe 1', 'Test descr 1', 'https://images.immediate.co.uk/production/volatile/sites/30/2013/05/Puttanesca-fd5810c.jpg',
@@ -36,5 +37,20 @@ export class RecipeService {
 
   getRecipe(index: number) {
     return this.recipes[index];
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
   }
 }
