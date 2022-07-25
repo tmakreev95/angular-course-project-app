@@ -17,7 +17,7 @@ export interface AuthResponseData {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_KEY = 'AIzaSyDCF_xXN9dsxeU5E_F5d4G01xGyv_wDGuU';
+  private readonly API_KEY = 'YOUR_API_KEY';
   private API_URL_SIGNUP = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.API_KEY}`
   private API_URL_SIGNIN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_KEY}`;
   private tokenExpirationTimer: any;
