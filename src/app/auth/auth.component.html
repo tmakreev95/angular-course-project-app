@@ -1,8 +1,8 @@
+<ng-template appPlaceholder></ng-template>
 <div class="container">
-    <div class="alert alert-danger"
-        *ngIf="error">
-        {{ error }}
-    </div>
+    <!-- <app-alert [message]="error"
+        (close)="onHandleError()"
+        *ngIf="error"></app-alert> -->
     <div class="row"
         *ngIf="isLoading"
         style="text-align: center;">
