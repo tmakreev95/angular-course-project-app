@@ -5,11 +5,11 @@ import { Ingredient } from '../models/ingredient';
 import { ShoppingListService } from '../services/shopping-list.service';
 
 @Component({
-  selector: 'app-shopping-edit',
-  templateUrl: './shopping-edit.component.html',
-  styleUrls: ['./shopping-edit.component.scss']
+  selector: 'app-shopping-list-edit',
+  templateUrl: './shopping-list-edit.component.html',
+  styleUrls: ['./shopping-list-edit.component.scss']
 })
-export class ShoppingEditComponent implements OnInit, OnDestroy {
+export class ShoppingListEditComponent implements OnInit, OnDestroy {
   @ViewChild('form') form: NgForm;
 
   subs: Subscription;
