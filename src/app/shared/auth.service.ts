@@ -4,6 +4,8 @@ import { catchError, throwError, Observable, tap, BehaviorSubject } from 'rxjs';
 import { User } from '../auth/models/user';
 import { Router } from '@angular/router';
 
+import { environment } from 'src/environments/environment';
+
 export interface AuthResponseData {
   idToken: string;
   email: string;
@@ -17,7 +19,7 @@ export interface AuthResponseData {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly API_KEY = 'YOUR_API_KEY';
+  private readonly API_KEY = environment.apiKey;
   private API_URL_SIGNUP = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.API_KEY}`
   private API_URL_SIGNIN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.API_KEY}`;
   private tokenExpirationTimer: any;
