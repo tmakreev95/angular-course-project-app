@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 
-import { AuthResponseData, AuthService } from '../shared/auth.service';
+import { AuthResponseData, AuthService } from './services/auth.service';
 
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/directives/placeholder.directive';
@@ -23,7 +23,8 @@ export class AuthComponent implements OnInit {
 
   constructor(private router: Router,
     private authService: AuthService,
-    private componentFactoryResolver: ComponentFactoryResolver) { }
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) { }
 
   ngOnInit(): void {
   }

@@ -9,5 +9,7 @@ export class DropdownDirective {
     this.isOpened = this.elementRef.nativeElement.contains(event.target) ? !this.isOpened : false;
   }
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(
+    private elementRef: ElementRef
+  ) { }
 }

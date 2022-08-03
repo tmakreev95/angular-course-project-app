@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { RecipeService } from '../recipes/services/recipe.service';
 import { Recipe } from '../recipes/models/recipe';
 import { map, tap, take, exhaustMap } from 'rxjs/operators';
-import { AuthService } from './auth.service';
+import { AuthService } from '../auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,10 @@ export class DataStorageService {
   private readonly recipeDomain = 'recipes';
   private readonly shoppingListDomain = 'shopping-list';
 
-  constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) { }
+  constructor(
+    private http: HttpClient,
+    private recipeService: RecipeService
+  ) { }
 
   storeRecipes() {
     const url = `${this.apiUrl}/recipes.json`;

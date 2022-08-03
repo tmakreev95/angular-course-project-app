@@ -1,14 +1,10 @@
-import { Ingredient } from "../../../shopping-list/models/ingredient";
-import * as ShoppingListActions from '../actions/shopping-list.actions';
+import { Ingredient } from '../models/ingredient';
+import * as ShoppingListActions from './shopping-list.actions';
 
 export interface State {
     ingredients: Ingredient[];
     editedIngredient: Ingredient;
     editedIngredientIndex: number;
-}
-
-export interface AppState {
-    shoppingList: State;
 }
 
 const initialState: State = {
