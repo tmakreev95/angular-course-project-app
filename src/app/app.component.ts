@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth/services/auth.service';
-
+import { Store } from '@ngrx/store';
+import * as fromApp from './store/app.reducer';
+import * as AuthActions from './auth/store/auth.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +11,10 @@ export class AppComponent implements OnInit {
   title = 'course-project-app';
 
   constructor(
-    private authService: AuthService
+    private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit() {
-    this.authService.autoLogin();
+    this.store.dispatch(new AuthActions.AutoLogin());
   }
 }

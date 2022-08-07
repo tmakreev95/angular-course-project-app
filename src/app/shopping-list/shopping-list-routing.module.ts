@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ShoppingListComponent } from './shopping-list.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
+
 
 const routes: Routes = [
-  { path: '', component: ShoppingListComponent }
+  { path: '', component: ShoppingListComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
